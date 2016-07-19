@@ -1,0 +1,2340 @@
+<!DOCTYPE html>
+<!-- saved from url=(0099)http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization -->
+<html itemscope="" itemtype="http://schema.org/QAPage"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>php - MySQL Insert into multiple tables? (Database normalization?) - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico?v=00a326f96f68">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=41f6e13ade69">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="stackoverflow.com">
+    <meta property="og:type" content="website">
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon@2.png?v=ea71a5211a91">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="MySQL Insert into multiple tables? (Database normalization?)">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="I tried searching a way to insert information in multiple tables in the same query, but found out it&#39;s impossible?
+So I want to insert it by simply using mutliple queries i.e;
+
+INSERT INTO users ">
+    <meta property="og:url" content="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization">
+    <link rel="canonical" href="./++_files/++.html">
+
+    
+    
+    <script type="text/javascript" async="" src="http://engine.adzerk.net/ados?t=1423045768444&request={%22Placements%22:[{%22A%22:22,%22S%22:8277,%22D%22:%22adzerk964901535%22,%22AT%22:4,%22Z%22:43},{%22A%22:22,%22S%22:8277,%22D%22:%22adzerk1434404007%22,%22AT%22:4,%22Z%22:44},{%22A%22:22,%22S%22:8277,%22D%22:%22adzerk1621355511%22,%22ATA%22:[17,2221],%22Z%22:45}],%22Keywords%22:%22php%2Cmysql%22,%22Referrer%22:%22%22,%22IsAsync%22:true}"></script><script async="" src="./++_files/quant.js"></script><script async="" src="./++_files/beacon.js"></script><script async="" src="./++_files/analytics.js"></script><script type="text/javascript" async="" src="./++_files/ados.js"></script><script src="./++_files/jquery.min.js"></script>
+    <script src="./++_files/stub.en.js"></script>
+    <link rel="stylesheet" type="text/css" href="./++_files/all.css">
+    
+    <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;MySQL Insert into multiple tables? (Database normalization?)&#39;" href="http://stackoverflow.com/feeds/question/5178697">
+    <meta name="twitter:app:country" content="US">
+    <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+    <meta name="twitter:app:id:iphone" content="871299723">
+    <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization">
+    <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+    <meta name="twitter:app:id:ipad" content="871299723">
+    <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization">
+    <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+    <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization">
+    <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+    <script>
+        
+        StackExchange.ready(function () {
+                
+                StackExchange.using("snippets", function () {
+                    StackExchange.snippets.initSnippetRenderer();
+                });
+                
+
+            StackExchange.using("postValidation", function () {
+                StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+            });
+
+            
+            StackExchange.question.init({showAnswerHelp:true,totalCommentCount:1,shownCommentCount:1,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:5178697});
+
+            styleCode();
+
+                StackExchange.realtime.subscribeToQuestion('1', '5178697');
+            
+                    });
+    </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","serverTime":1423045759,"networkMetaHostname":"meta.stackexchange.com","routeName":"Questions/Show","styleCode":true,"enableUserHovercards":true,"snippets":{"enabled":true,"domain":"stacksnippets.net"},"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"nonAsciiTags":true,"enableSocialMediaInSharePopup":true},"user":{"fkey":"e3c14d6265d9ca21c78b6ba2619c56e1","isAnonymous":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"3ee1b7a44754","js/moderator.en.js":"eacc3f340c48","js/full-anon.en.js":"8d278f8d3609","js/full.en.js":"82ead2cc0266","js/wmd.en.js":"16c9d9517d86","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"0c842be285f8","js/help.en.js":"b5f40fd81205","js/tageditor.en.js":"260ae44a356d","js/tageditornew.en.js":"7f90498f8645","js/inline-tag-editing.en.js":"48f13b102998","js/revisions.en.js":"b9f74067e1f5","js/review.en.js":"add1d7d77eeb","js/tagsuggestions.en.js":"bc2c996faeda","js/post-validation.en.js":"a497ac1a2a8e","js/explore-qlist.en.js":"257ba4cb7b04","js/events.en.js":"4a965e23a325","js/keyboard-shortcuts.en.js":"292967f57b59","js/external-editor.en.js":"76c9b72c4f28","js/external-editor.en.js":"76c9b72c4f28","js/snippet-javascript.en.js":"7700e8b17c10","js/snippet-javascript-codemirror.en.js":"22aa229b1f08"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    
+    
+<script async="" src="./++_files/full-anon.en.js"></script><script async="" src="http://cdn.sstatic.net/Js/snippet-javascript.en.js?v=7700e8b17c10"></script><script async="" src="http://cdn.sstatic.net/Js/post-validation.en.js?v=a497ac1a2a8e"></script><script async="" src="http://cdn.sstatic.net/Js/prettify-full.en.js?v=3ee1b7a44754"></script><script async="" src="http://cdn.sstatic.net/Js/external-editor.en.js?v=76c9b72c4f28"></script><script type="text/javascript" src="http://static.adzerk.net/Extensions/adFeedback.js"></script><link rel="stylesheet" href="http://static.adzerk.net/Extensions/adFeedback.css"></head>
+<body class="question-page new-topbar">
+    <noscript>&lt;div id="noscript-padding"&gt;&lt;/div&gt;</noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+
+
+
+<div class="topbar">
+    <div class="topbar-wrapper">
+
+        <div class="js-topbar-dialog-corral">
+
+<div class="topbar-dialog siteSwitcher-dialog dno">
+    <div class="header">
+        <h3><a href="http://stackoverflow.com/">current community</a></h3>
+    </div>
+    <div class="modal-content current-site-container">
+        <ul class="current-site">
+                <li>
+                        <div class="related-links">
+            <a href="http://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+                    <a href="http://blog.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:7 })">blog</a>
+            </div>
+
+
+
+
+    <a href="http://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="
+        site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                </li>
+                <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    
+
+
+
+    <a href="http://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="
+            site.switch({ target_site:552, item_type:3 }),
+        site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                </li>
+                            <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    <a class="site-link js-gps-track" href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&utm_medium=site-ui&utm_campaign=multicollider" data-gps-track="site_switcher.click({ item_type:9 })">
+                        <div class="site-icon favicon favicon-careers" title="Stack Overflow Careers"></div>
+                        Stack Overflow Careers
+                    </a>
+                </li>
+        </ul>
+    </div>
+    
+    <div class="header" id="your-communities-header">
+        <h3>
+your communities        </h3>
+            
+    </div>
+    <div class="modal-content" id="your-communities-section">
+            
+            <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f5178697%2fmysql-insert-into-multiple-tables-database-normalization" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f5178697%2fmysql-insert-into-multiple-tables-database-normalization" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+            </div>
+    </div>
+    
+    <div class="header">
+        <h3><a href="http://stackexchange.com/sites">more stack exchange communities</a></h3>
+    </div>
+    <div class="modal-content">
+            <div class="child-content"></div>
+    </div>
+</div>
+        </div>
+
+        <div class="network-items">
+
+            <a href="http://stackexchange.com/" class="topbar-icon icon-site-switcher yes-hover js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 135 Stack Exchange sites">
+                <span class="hidden-text">Stack Exchange</span>
+            </a>
+
+        </div>
+
+        <div class="topbar-links">
+
+                <div class="links-container">
+                    <span class="topbar-menu-links">
+                            <a href="https://stackoverflow.com/users/signup?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f5178697%2fmysql-insert-into-multiple-tables-database-normalization" class="login-link">sign up</a>
+                            <a href="https://stackoverflow.com/users/login?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f5178697%2fmysql-insert-into-multiple-tables-database-normalization" class="login-link">log in</a>
+                            <a href="http://stackoverflow.com/tour">tour</a>
+
+                            <a href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#" class="icon-help js-help-button" title="Help Center and other resources">
+        help
+        <span class="triangle"></span>
+    </a>
+    <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="http://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="http://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                    <li>
+                        <a href="http://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                            Meta
+                            <span class="item-summary">
+                                Discuss the workings and policies of this site
+                            </span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+
+                            <a href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&utm_medium=site-ui&utm_campaign=anon-topbar">stack overflow careers</a>
+                    </span>
+                </div>
+
+            <div class="search-container">
+                <form id="search" action="http://stackoverflow.com/search" method="get" autocomplete="off">
+                    <input name="q" type="text" placeholder="search" value="" tabindex="1" autocomplete="off" maxlength="240">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <script>
+        StackExchange.ready(function() { StackExchange.topbar.init(); });
+    </script>
+
+    <div class="container">
+        <div id="header">
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://stackoverflow.com/">
+                    Stack Overflow
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="http://stackoverflow.com/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="http://stackoverflow.com/tags">Tags</a></li>
+                        <li><a id="nav-users" href="http://stackoverflow.com/users">Users</a></li>
+                        <li><a id="nav-badges" href="http://stackoverflow.com/help/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="http://stackoverflow.com/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://stackoverflow.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content" class="snippet-hidden">
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+	<link itemprop="image" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+			<!--googleoff: all-->
+
+<div id="herobox-mini">
+    <div id="hero-content">
+        <span id="controls">
+            <a href="http://stackoverflow.com/tour" id="tell-me-more" class="button">Take the 2-minute tour</a>
+            <span id="close"><a title="click to dismiss">×</a></span>
+        </span>
+        <div id="blurb">
+            Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.
+        </div>        
+    </div>
+    <script>
+        $('#tell-me-more').click(function () {
+            var clickSource = $("body").attr("class") + '-mini';
+            if ($("body").hasClass("questions-page")) {
+                clickSource = 'questionpagemini';
+            } else if ($("body").hasClass("question-page")) {
+                clickSource = 'questionpagemini';
+            } else if ($("body").hasClass("home-page")) {
+                clickSource = 'homepagemini';
+            }
+
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("aboutpage.click", { aboutclick_location: clickSource } , true);
+            });
+        });
+        $('#herobox-mini #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "close" }, true);
+            });
+            $.cookie("hero", "none", { path: "/", expires: 365 });
+            var $hero = $("#herobox-mini");
+            $hero.slideUp('fast', function () { $hero.remove(); });
+            return false;
+        });
+    </script>
+</div>
+			<!--googleon: all-->
+			<div id="question-header">
+			<h1 itemprop="name"><a href="./++_files/++.html" class="question-hyperlink">MySQL Insert into multiple tables? (Database normalization?)</a></h1>
+		</div>
+			<div id="mainbar">
+
+			
+
+<div class="question" data-questionid="5178697" id="question">
+
+    <script>
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8277,"adzerk964901535",4).setZone(43) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk964901535"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjoxODY2MjQsImNoIjoxMTc4LCJjciI6Njk1NzEzLCJkaSI6IjA3MjhhNDI0MmUwMzQxYWVhMGRhMjMyZjZkOGM3MjI1IiwiZG0iOjEsImZjIjo3MjE4MDcsImZsIjo0MzE3ODAsImlwIjoiNTguOC45NS4xMzciLCJrdyI6InBocCxteXNxbCIsIm53IjoyMiwicGMiOjAsInByIjoxNjA0LCJydCI6MSwic3QiOjgyNzcsInVrIjoidWUxLTBhODQzNzcxYjBlZDRlZmM5YmJkNjJiNThjOGMxY2E2Iiwiem4iOjQzLCJ0cyI6MTQyMzA0NTc3MzYwNiwiYmYiOnRydWUsInVyIjoiaHR0cDovL2NhcmVlcnMuc3RhY2tvdmVyZmxvdy5jb20vam9icy9yZW1vdGU_dXRtX3NvdXJjZT1zdGFja292ZXJmbG93LmNvbSZ1dG1fbWVkaXVtPWFkJnV0bV9jYW1wYWlnbj1jYW5kaWRhdGVzLXdmaCZ1dG1fY29udGVudD1sYi13Zmgta2lkLXdvcmstb24td29yayJ9&s=Svqdzx5eJXc0eQHCPi426t-FhFs" rel="nofollow" target="_blank" title=""><img src="http://static.adzerk.net/Advertisers/d47c809dea6241b9933a81fe1d0f7085.jpg" title="" alt="" border="0" width="728" height="90"></a><img height="0px" width="0px" border="0" style="position:absolute;" src="http://engine.adzerk.net/i.gif?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjoxODY2MjQsImNoIjoxMTc4LCJjciI6Njk1NzEzLCJkaSI6IjA3MjhhNDI0MmUwMzQxYWVhMGRhMjMyZjZkOGM3MjI1IiwiZG0iOjEsImZjIjo3MjE4MDcsImZsIjo0MzE3ODAsImlwIjoiNTguOC45NS4xMzciLCJrdyI6InBocCxteXNxbCIsIm53IjoyMiwicGMiOjAsInByIjoxNjA0LCJydCI6MSwic3QiOjgyNzcsInVrIjoidWUxLTBhODQzNzcxYjBlZDRlZmM5YmJkNjJiNThjOGMxY2E2Iiwiem4iOjQzLCJ0cyI6MTQyMzA0NTc3MzYwNywiYmYiOnRydWV9&s=xInKpEuQQYgIEt8a2Q-ldCuI8_M"><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li><li><label><input type="radio" value="16" name="downvoteReason">Other</label></li></ul><a href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="5178697">
+    <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+    <span itemprop="upvoteCount" class="vote-count-post ">35</span>
+    <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+    
+    <a class="star-off" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#" title="This is a favorite question (click again to undo)">favorite</a>
+    <div class="favoritecount"><b>30</b></div>   
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+        <p>I tried searching a way to insert information in multiple tables in the same query, but found out it's impossible?
+So I want to insert it by simply using mutliple queries i.e;</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="pln">INSERT INTO users </span><span class="pun">(</span><span class="pln">username</span><span class="pun">,</span><span class="pln"> password</span><span class="pun">)</span><span class="pln"> VALUES</span><span class="pun">(</span><span class="str">'test'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'test'</span><span class="pun">)</span><span class="pln">
+INSERT INTO profiles </span><span class="pun">(</span><span class="pln">userid</span><span class="pun">,</span><span class="pln"> bio</span><span class="pun">,</span><span class="pln"> homepage</span><span class="pun">)</span><span class="pln"> VALUES</span><span class="pun">(</span><span class="str">'[id of the user here?]'</span><span class="pun">,</span><span class="str">'Hello world!'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'http://www.stackoverflow.com'</span><span class="pun">)</span></code></pre>
+
+<p>But how can I give the auto-increment id from the user to the "manual" userid for the profile table?</p>
+
+    </div>
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/php" class="post-tag js-gps-track" title="show questions tagged &#39;php&#39;" rel="tag">php</a> <a href="http://stackoverflow.com/questions/tagged/mysql" class="post-tag js-gps-track" title="show questions tagged &#39;mysql&#39;" rel="tag">mysql</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/q/5178697" title="short permalink to this question" class="short-link" id="link-post-5178697">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/5178697/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td class="post-signature owner">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2011-03-03 09:15:27Z" class="relativetime">Mar 3 '11 at 9:15</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/630020/jay-wit"><div class="gravatar-wrapper-32"><img src="./++_files/5fc428c6104950a551558462ff38998d" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/630020/jay-wit">Jay Wit</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">654</span><span title="5 gold badges"><span class="badge1"></span><span class="badgecount">5</span></span><span title="15 silver badges"><span class="badge2"></span><span class="badgecount">15</span></span><span title="27 bronze badges"><span class="badge3"></span><span class="badgecount">27</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-5178697" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-5822119" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">You want to learn about transactions.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/452865/vichle" title="169 reputation" class="comment-user">vichle</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#comment5822119_5178697"><span title="2011-03-03 09:16:41Z" class="relativetime-clean">Mar 3 '11 at 9:16</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+            <div id="comments-link-5178697" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span><a class="js-show-link comments-link dno" title="expand to show all comments on this post, or add one of your own" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#" onclick=""></a>
+            </div>
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								6 Answers
+                                <span style="display:none;" itemprop="answerCount">6</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization?answertab=active#tab-top" title="Answers with the latest activity first">active</a>
+        <a href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization?answertab=oldest#tab-top" title="Answers in the order they were provided">oldest</a>
+        <a class="youarehere" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization?answertab=votes#tab-top" title="Answers with the highest score first">votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="5178713"></a>
+<div id="answer-5178713" class="answer accepted-answer" data-answerid="5178713" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="5178713">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span itemprop="upvoteCount" class="vote-count-post ">72</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>No, you can't insert into multiple tables in one MySQL command. You can however use transactions.</p>
+
+<pre class="lang-sql prettyprint prettyprinted"><code><span class="kwd">BEGIN</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">INSERT</span><span class="pln"> </span><span class="kwd">INTO</span><span class="pln"> users </span><span class="pun">(</span><span class="pln">username</span><span class="pun">,</span><span class="pln"> password</span><span class="pun">)</span><span class="pln">
+  </span><span class="kwd">VALUES</span><span class="pun">(</span><span class="str">'test'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'test'</span><span class="pun">);</span><span class="pln">
+</span><span class="kwd">INSERT</span><span class="pln"> </span><span class="kwd">INTO</span><span class="pln"> profiles </span><span class="pun">(</span><span class="pln">userid</span><span class="pun">,</span><span class="pln"> bio</span><span class="pun">,</span><span class="pln"> homepage</span><span class="pun">)</span><span class="pln"> 
+  </span><span class="kwd">VALUES</span><span class="pun">(</span><span class="pln">LAST_INSERT_ID</span><span class="pun">(),</span><span class="str">'Hello world!'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'http://www.stackoverflow.com'</span><span class="pun">);</span><span class="pln">
+</span><span class="kwd">COMMIT</span><span class="pun">;</span></code></pre>
+
+<p>Have a look at <a href="http://dev.mysql.com/doc/refman/5.0/en/getting-unique-id.html"><code>LAST_INSERT_ID()</code></a> to reuse autoincrement values.</p>
+
+<h3>Edit: you said "<em>After all this time trying to figure it out, it still doesn't work. Can't I simply put the just generated ID in a $var and put that $var in all the MySQL commands?</em>"</h3>
+
+<p>Let me elaborate: there are 3 possible ways here:</p>
+
+<ol>
+<li><p>Is the code you see above. This
+does it all in MySQL, and the
+<code>LAST_INSERT_ID()</code> in the second
+statement will automatically be the
+value of the autoincrement-column
+that was inserted in the first
+statement.</p>
+
+<p>Unfortunately, when the second statement itself inserts rows in a table with an auto-increment column, the <code>LAST_INSERT_ID()</code> will be updated to that of table 2, and not table 1. If you still need that of table 1 afterwards, we will have to store it in a variable. This leads us to ways 2 and 3:</p></li>
+<li><p>Will stock the <code>LAST_INSERT_ID()</code> in
+a MySQL variable:</p>
+
+<pre class="lang-sql prettyprint prettyprinted"><code><span class="kwd">INSERT</span><span class="pln"> </span><span class="pun">...</span><span class="pln">
+</span><span class="kwd">SELECT</span><span class="pln"> LAST_INSERT_ID</span><span class="pun">()</span><span class="pln"> </span><span class="kwd">INTO</span><span class="pln"> </span><span class="pun">@</span><span class="pln">mysql_variable_here</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">INSERT</span><span class="pln"> </span><span class="kwd">INTO</span><span class="pln"> table2 </span><span class="pun">(@</span><span class="pln">mysql_variable_here</span><span class="pun">,</span><span class="pln"> </span><span class="pun">...);</span><span class="pln">
+</span><span class="kwd">INSERT</span><span class="pln"> </span><span class="kwd">INTO</span><span class="pln"> table3 </span><span class="pun">(@</span><span class="pln">mysql_variable_here</span><span class="pun">,</span><span class="pln"> </span><span class="pun">...);</span></code></pre></li>
+<li><p>Will stock the <code>LAST_INSERT_ID()</code> in a
+php variable (or any language that
+can connect to a database, of your
+choice):</p>
+
+<ul>
+<li><code>INSERT ...</code></li>
+<li>Use your language to retrieve the <code>LAST_INSERT_ID()</code>, either by executing that literal statement in MySQL, or using for example php's <code>mysql_insert_id()</code> which does that for you</li>
+<li><code>INSERT [use your php variable here]</code></li>
+</ul></li>
+</ol>
+
+<h2>WARNING</h2>
+
+<p>Whatever way of solving this you choose, you must decide what should happen <strong>should the execution be interrupted between queries</strong> (for example, your database-server crashes). If you can live with "some have finished, others not", don't read on.</p>
+
+<p>If however you decide "either all queries finish, or none finish - I do not want rows in some tables but no matching rows in others, I always want my database tables to be consistent", you need to wrap all statements in a transaction. That's why I used the <code>BEGIN</code> and <code>COMMIT</code> here.</p>
+
+<p>Comment again if you need more info :)</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/5178713" title="short permalink to this answer" class="short-link" id="link-post-5178713">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/5178713/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/5178713/revisions" title="show all edits to this post">edited <span title="2013-10-29 21:39:52Z" class="relativetime">Oct 29 '13 at 21:39</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/51683/carols10cents"><div class="gravatar-wrapper-32"><img src="./++_files/2ac88413948aad12e279e0d9609e7f74" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/51683/carols10cents">carols10cents</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">3,984</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="20 silver badges"><span class="badge2"></span><span class="badgecount">20</span></span><span title="42 bronze badges"><span class="badge3"></span><span class="badgecount">42</span></span>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2011-03-03 09:17:15Z" class="relativetime">Mar 3 '11 at 9:17</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/327563/konerak"><div class="gravatar-wrapper-32"><img src="./++_files/c2e0619983f017acfd1832bb903a343f" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/327563/konerak">Konerak</a><br>
+        <span class="reputation-score" title="reputation score 23226" dir="ltr">23.2k</span><span title="4 gold badges"><span class="badge1"></span><span class="badgecount">4</span></span><span title="46 silver badges"><span class="badge2"></span><span class="badgecount">46</span></span><span title="83 bronze badges"><span class="badge3"></span><span class="badgecount">83</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-5178713" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="3" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-5818275" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">you can call a stored procedure - it's one call/command.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/298016/f00" title="9582 reputation" class="comment-user">f00</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#comment5818275_5178713"><span title="2011-03-03 09:30:23Z" class="relativetime-clean">Mar 3 '11 at 9:30</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-5818354" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">And what if I want to insert into more than 2 tables, and I want all the others to have a unique id and the userid? Is that possible?</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/630020/jay-wit" title="654 reputation" class="comment-user owner">Jay Wit</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#comment5818354_5178713"><span title="2011-03-03 09:36:26Z" class="relativetime-clean">Mar 3 '11 at 9:36</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-5818381" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">You could put the last_insert_id from the original table in a <a href="http://dev.mysql.com/doc/refman/5.0/en/select-into-statement.html" rel="nofollow">MySQL variable</a>, and use that variable in all your other tables. f00's suggestion for using a Stored Procedure makes even more sense if you're going to manipulate lots of table in one time.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/327563/konerak" title="23226 reputation" class="comment-user">Konerak</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#comment5818381_5178713"><span title="2011-03-03 09:38:46Z" class="relativetime-clean">Mar 3 '11 at 9:38</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-5838752" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@Jay Wit: I updated the answer. 'Way 3' explains you indeed can put the ID in a variable and reuse it in all MySQL commands, but you should read about transactions if you want your db to be consistent in case of a crash.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/327563/konerak" title="23226 reputation" class="comment-user">Konerak</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#comment5838752_5178713"><span title="2011-03-04 14:18:12Z" class="relativetime-clean">Mar 4 '11 at 14:18</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-5840188" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Sure, they are accepted MySQL statements, just like SELECT, UPDATE, INSERT and DELETE. Make a little testscript first, and if everything works fine, you're good to go.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/327563/konerak" title="23226 reputation" class="comment-user">Konerak</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#comment5840188_5178713"><span title="2011-03-04 15:45:58Z" class="relativetime-clean">Mar 4 '11 at 15:45</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+            <div id="comments-link-5178713" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span><a class="js-show-link comments-link " title="expand to show all comments on this post, or add one of your own" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#" onclick="">show <b>3</b> more comments</a>
+            </div>
+    </td>
+</tr>    </tbody></table>
+</div>
+<script>
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8277,"adzerk1434404007",4).setZone(44) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1434404007"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjoxODY2MjQsImNoIjoxMTc4LCJjciI6Njg0Mjk4LCJkaSI6IjFhY2Y0NmVjZjg1YzRiNDliMzQwZjRmMDFmMWRhYzEwIiwiZG0iOjEsImZjIjo3MDg0NTIsImZsIjo0MzE3ODAsImlwIjoiNTguOC45NS4xMzciLCJrdyI6InBocCxteXNxbCIsIm53IjoyMiwicGMiOjAsInByIjoxNjA0LCJydCI6MSwic3QiOjgyNzcsInVrIjoidWUxLTBhODQzNzcxYjBlZDRlZmM5YmJkNjJiNThjOGMxY2E2Iiwiem4iOjQ0LCJ0cyI6MTQyMzA0NTc3MzYwOSwiYmYiOnRydWUsInVyIjoiaHR0cDovL2NhcmVlcnMuc3RhY2tvdmVyZmxvdy5jb20vcHJvZHVjdHM_dXRtX3NvdXJjZT1zdGFja292ZXJmbG93LmNvbSZ1dG1fbWVkaXVtPWFkJnV0bV9jYW1wYWlnbj1lbXBsb3llcnMtc3VwZXJoZXJvZXMmdXRtX2NvbnRlbnQ9bWxiLXN1cGVyaGVyb2VzIn0&s=sZr5VVa84-CZz6I3Qg87eaDm3k8" rel="nofollow" target="_blank" title=""><img src="http://static.adzerk.net/Advertisers/7b03b9d327834757b98b657002b37789.png" title="" alt="" border="0" width="728" height="90"></a><img height="0px" width="0px" border="0" style="position:absolute;" src="http://engine.adzerk.net/i.gif?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjoxODY2MjQsImNoIjoxMTc4LCJjciI6Njg0Mjk4LCJkaSI6IjFhY2Y0NmVjZjg1YzRiNDliMzQwZjRmMDFmMWRhYzEwIiwiZG0iOjEsImZjIjo3MDg0NTIsImZsIjo0MzE3ODAsImlwIjoiNTguOC45NS4xMzciLCJrdyI6InBocCxteXNxbCIsIm53IjoyMiwicGMiOjAsInByIjoxNjA0LCJydCI6MSwic3QiOjgyNzcsInVrIjoidWUxLTBhODQzNzcxYjBlZDRlZmM5YmJkNjJiNThjOGMxY2E2Iiwiem4iOjQ0LCJ0cyI6MTQyMzA0NTc3MzYxMCwiYmYiOnRydWV9&s=30EC1iF9iuvvKCf69RNyk6xsvk0"><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li><li><label><input type="radio" value="16" name="downvoteReason">Other</label></li></ul><a href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div></div>
+  
+<a name="5178811"></a>
+<div id="answer-5178811" class="answer" data-answerid="5178811" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="5178811">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span itemprop="upvoteCount" class="vote-count-post ">10</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>fairly simple if you use stored procedures:</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="pln">call insert_user_and_profile</span><span class="pun">(</span><span class="str">'f00'</span><span class="pun">,</span><span class="str">'http://www.f00.com'</span><span class="pun">);</span></code></pre>
+
+<p><strong>full script:</strong></p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="pln">drop table </span><span class="kwd">if</span><span class="pln"> exists users</span><span class="pun">;</span><span class="pln">
+create table users
+</span><span class="pun">(</span><span class="pln">
+user_id </span><span class="kwd">int</span><span class="pln"> </span><span class="kwd">unsigned</span><span class="pln"> </span><span class="kwd">not</span><span class="pln"> </span><span class="kwd">null</span><span class="pln"> auto_increment primary key</span><span class="pun">,</span><span class="pln">
+username varchar</span><span class="pun">(</span><span class="lit">32</span><span class="pun">)</span><span class="pln"> unique </span><span class="kwd">not</span><span class="pln"> </span><span class="kwd">null</span><span class="pln">
+</span><span class="pun">)</span><span class="pln">
+engine</span><span class="pun">=</span><span class="pln">innodb</span><span class="pun">;</span><span class="pln">
+
+drop table </span><span class="kwd">if</span><span class="pln"> exists user_profile</span><span class="pun">;</span><span class="pln">
+create table user_profile
+</span><span class="pun">(</span><span class="pln">
+profile_id </span><span class="kwd">int</span><span class="pln"> </span><span class="kwd">unsigned</span><span class="pln"> </span><span class="kwd">not</span><span class="pln"> </span><span class="kwd">null</span><span class="pln"> auto_increment primary key</span><span class="pun">,</span><span class="pln">
+user_id </span><span class="kwd">int</span><span class="pln"> </span><span class="kwd">unsigned</span><span class="pln"> </span><span class="kwd">not</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">,</span><span class="pln">
+homepage varchar</span><span class="pun">(</span><span class="lit">255</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">not</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">,</span><span class="pln">
+key </span><span class="pun">(</span><span class="pln">user_id</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">)</span><span class="pln">
+engine</span><span class="pun">=</span><span class="pln">innodb</span><span class="pun">;</span><span class="pln">
+
+drop procedure </span><span class="kwd">if</span><span class="pln"> exists insert_user_and_profile</span><span class="pun">;</span><span class="pln">
+
+delimiter </span><span class="com">#</span><span class="pln">
+
+create procedure insert_user_and_profile
+</span><span class="pun">(</span><span class="pln">
+</span><span class="kwd">in</span><span class="pln"> p_username varchar</span><span class="pun">(</span><span class="lit">32</span><span class="pun">),</span><span class="pln">
+</span><span class="kwd">in</span><span class="pln"> p_homepage varchar</span><span class="pun">(</span><span class="lit">255</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">begin</span><span class="pln">
+declare v_user_id </span><span class="kwd">int</span><span class="pln"> </span><span class="kwd">unsigned</span><span class="pln"> </span><span class="kwd">default</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+
+insert </span><span class="kwd">into</span><span class="pln"> users </span><span class="pun">(</span><span class="pln">username</span><span class="pun">)</span><span class="pln"> values </span><span class="pun">(</span><span class="pln">p_username</span><span class="pun">);</span><span class="pln">
+</span><span class="kwd">set</span><span class="pln"> v_user_id </span><span class="pun">=</span><span class="pln"> last_insert_id</span><span class="pun">();</span><span class="pln"> </span><span class="pun">--</span><span class="pln"> save the newly created user_id
+
+insert </span><span class="kwd">into</span><span class="pln"> user_profile </span><span class="pun">(</span><span class="pln">user_id</span><span class="pun">,</span><span class="pln"> homepage</span><span class="pun">)</span><span class="pln"> values </span><span class="pun">(</span><span class="pln">v_user_id</span><span class="pun">,</span><span class="pln"> p_homepage</span><span class="pun">);</span><span class="pln">
+
+</span><span class="kwd">end</span><span class="com">#</span><span class="pln">
+
+delimiter </span><span class="pun">;</span><span class="pln">
+
+call insert_user_and_profile</span><span class="pun">(</span><span class="str">'f00'</span><span class="pun">,</span><span class="str">'http://www.f00.com'</span><span class="pun">);</span><span class="pln">
+
+</span><span class="kwd">select</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> users</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">select</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> user_profile</span><span class="pun">;</span></code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/5178811" title="short permalink to this answer" class="short-link" id="link-post-5178811">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/5178811/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2011-03-03 09:27:30Z" class="relativetime">Mar 3 '11 at 9:27</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/298016/f00"><div class="gravatar-wrapper-32"><img src="./++_files/SOXAY.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/298016/f00">f00</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">9,582</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="20 silver badges"><span class="badge2"></span><span class="badgecount">20</span></span><span title="30 bronze badges"><span class="badge3"></span><span class="badgecount">30</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-5178811" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-5837482" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Sorry, but is this PHP? I've never seen anything like this. I'm using PHP and MySQL, any tips?</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/630020/jay-wit" title="654 reputation" class="comment-user owner">Jay Wit</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#comment5837482_5178811"><span title="2011-03-04 12:48:19Z" class="relativetime-clean">Mar 4 '11 at 12:48</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-26044108" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">looks like a long set of sql statements</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/1650757/melbourne2991" title="1413 reputation" class="comment-user">Melbourne2991</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#comment26044108_5178811"><span title="2013-07-24 18:27:20Z" class="relativetime-clean">Jul 24 '13 at 18:27</span></a></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-43154309" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">it works well .</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/2500784/tea-addict" title="59 reputation" class="comment-user">tea-addict</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#comment43154309_5178811"><span title="2014-12-08 01:08:50Z" class="relativetime-clean">Dec 8 '14 at 1:08</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+            <div id="comments-link-5178811" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span><a class="js-show-link comments-link dno" title="expand to show all comments on this post, or add one of your own" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#" onclick=""></a>
+            </div>
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="5178746"></a>
+<div id="answer-5178746" class="answer" data-answerid="5178746" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="5178746">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span itemprop="upvoteCount" class="vote-count-post ">2</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>try this </p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="pln">$sql</span><span class="pun">=</span><span class="pln"> </span><span class="str">" INSERT INTO users (username, password) VALUES('test', 'test') "</span><span class="pun">;</span><span class="pln">
+mysql_query</span><span class="pun">(</span><span class="pln">$sql</span><span class="pun">);</span><span class="pln">
+$user_id</span><span class="pun">=</span><span class="pln"> mysql_insert_id</span><span class="pun">();</span><span class="pln">
+</span><span class="kwd">if</span><span class="pun">(!</span><span class="pln">empty</span><span class="pun">(</span><span class="pln">$user_id</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+$sql</span><span class="pun">=</span><span class="pln">INSERT INTO profiles </span><span class="pun">(</span><span class="pln">userid</span><span class="pun">,</span><span class="pln"> bio</span><span class="pun">,</span><span class="pln"> homepage</span><span class="pun">)</span><span class="pln"> VALUES</span><span class="pun">(</span><span class="pln">$user_id</span><span class="pun">,</span><span class="str">'Hello world!'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'http://www.stackoverflow.com'</span><span class="pun">);</span><span class="pln">
+</span><span class="com">/* or 
+ $sql=INSERT INTO profiles (userid, bio, homepage) VALUES(LAST_INSERT_ID(),'Hello   world!', 'http://www.stackoverflow.com'); */</span><span class="pln">
+ mysql_query</span><span class="pun">(</span><span class="pln">$sql</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">};</span></code></pre>
+
+<p>References<br>
+<a href="http://php.net/manual/en/function.mysql-insert-id.php" rel="nofollow">PHP</a><br>
+<a href="http://dev.mysql.com/doc/refman/5.0/en/information-functions.html#function_last-insert-id" rel="nofollow">MYSQL</a></p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/5178746" title="short permalink to this answer" class="short-link" id="link-post-5178746">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/5178746/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2011-03-03 09:20:55Z" class="relativetime">Mar 3 '11 at 9:20</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/155861/diecho"><div class="gravatar-wrapper-32"><img src="./++_files/a83af6b9a6574e59dd2ac9d7460f7213" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/155861/diecho">diEcho</a><br>
+        <span class="reputation-score" title="reputation score 23443" dir="ltr">23.4k</span><span title="14 gold badges"><span class="badge1"></span><span class="badgecount">14</span></span><span title="59 silver badges"><span class="badge2"></span><span class="badgecount">59</span></span><span title="127 bronze badges"><span class="badge3"></span><span class="badgecount">127</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-5178746" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="5" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-5818175" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This would most likely result in some unwanted behaviour if the server crashes after the user creation but before the profile creation.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/452865/vichle" title="169 reputation" class="comment-user">vichle</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#comment5818175_5178746"><span title="2011-03-03 09:22:13Z" class="relativetime-clean">Mar 3 '11 at 9:22</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-5818211" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@Vichle then what is best way??</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/155861/diecho" title="23443 reputation" class="comment-user">diEcho</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#comment5818211_5178746"><span title="2011-03-03 09:25:07Z" class="relativetime-clean">Mar 3 '11 at 9:25</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-5818257" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Using transactions. Like Konerak did. If the server crashes before a transaction is finished, the changes made by the transaction will be rolled back.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/452865/vichle" title="169 reputation" class="comment-user">vichle</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#comment5818257_5178746"><span title="2011-03-03 09:28:37Z" class="relativetime-clean">Mar 3 '11 at 9:28</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-5818578" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@vichle add your darn transaction to this code and stop that nonsense already</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/285587/your-common-sense" title="1 reputation" class="comment-user">Your Common Sense</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#comment5818578_5178746"><span title="2011-03-03 09:52:32Z" class="relativetime-clean">Mar 3 '11 at 9:52</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-5818690" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@Konerak I am running PHP scripts for over 10 years. Neither of them have a habit of stopping between lines. you'd better think of improving your server quality to make it crash not THAT often. It's web, dude. it's not Federal Reserve. Nothing wrong with one broken user registration of 100 000 000 successful ones.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/285587/your-common-sense" title="1 reputation" class="comment-user">Your Common Sense</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#comment5818690_5178746"><span title="2011-03-03 09:59:25Z" class="relativetime-clean">Mar 3 '11 at 9:59</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+            <div id="comments-link-5178746" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span><a class="js-show-link comments-link " title="expand to show all comments on this post, or add one of your own" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#" onclick="">show <b>5</b> more comments</a>
+            </div>
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="5178760"></a>
+<div id="answer-5178760" class="answer" data-answerid="5178760" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="5178760">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span itemprop="upvoteCount" class="vote-count-post ">2</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>have a look at mysql_insert_id()</p>
+
+<p>here the documentation: <a href="http://in.php.net/manual/en/function.mysql-insert-id.php" rel="nofollow">http://in.php.net/manual/en/function.mysql-insert-id.php</a></p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/5178760" title="short permalink to this answer" class="short-link" id="link-post-5178760">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/5178760/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2011-03-03 09:21:57Z" class="relativetime">Mar 3 '11 at 9:21</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/603444/daniel-kutik"><div class="gravatar-wrapper-32"><img src="./++_files/0872aa785535da245c1bf0ff4e413048" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/603444/daniel-kutik">Daniel Kutik</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">4,338</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="10 silver badges"><span class="badge2"></span><span class="badgecount">10</span></span><span title="27 bronze badges"><span class="badge3"></span><span class="badgecount">27</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-5178760" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="1" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-5818205" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">That function is the devil of database consistency.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/452865/vichle" title="169 reputation" class="comment-user">vichle</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#comment5818205_5178760"><span title="2011-03-03 09:24:34Z" class="relativetime-clean">Mar 3 '11 at 9:24</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-5818237" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">agreed - using a transaction might be the better solution</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/603444/daniel-kutik" title="4338 reputation" class="comment-user">Daniel Kutik</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#comment5818237_5178760"><span title="2011-03-03 09:26:27Z" class="relativetime-clean">Mar 3 '11 at 9:26</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-5818243" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@vichle: is that so? I'm don't use php that often, but I figured it was their shortcut to calling <code>LAST_INSERT_ID()</code> for the programmer?</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/327563/konerak" title="23226 reputation" class="comment-user">Konerak</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#comment5818243_5178760"><span title="2011-03-03 09:27:07Z" class="relativetime-clean">Mar 3 '11 at 9:27</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-5818302" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@vichle someone deceived you, man. learn better</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/285587/your-common-sense" title="1 reputation" class="comment-user">Your Common Sense</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#comment5818302_5178760"><span title="2011-03-03 09:32:30Z" class="relativetime-clean">Mar 3 '11 at 9:32</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-5818332" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">All queries are transactions. Default in most programming languages is to auto commit transactions, since most transactions are just one query. The mysql_insert_id() function is meant for when you have turned off auto commit, but is very often used in the wrong context by people not familiar to the transaction concept.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/452865/vichle" title="169 reputation" class="comment-user">vichle</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#comment5818332_5178760"><span title="2011-03-03 09:34:53Z" class="relativetime-clean">Mar 3 '11 at 9:34</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+            <div id="comments-link-5178760" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span><a class="js-show-link comments-link " title="expand to show all comments on this post, or add one of your own" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#" onclick="">show <b>1</b> more comment</a>
+            </div>
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="15663312"></a>
+<div id="answer-15663312" class="answer" data-answerid="15663312" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="15663312">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>What happen, if you want to create many such records ones (to register 10 users, not just one)?
+I find the following solution (just 5 queryes):</p>
+
+<p><strong>Step I:</strong> Create temporary table to store new data.</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="pln">CREATE TEMPORARY TABLE tmp </span><span class="pun">(</span><span class="pln">id bigint</span><span class="pun">(</span><span class="lit">20</span><span class="pun">)</span><span class="pln"> NOT NULL</span><span class="pun">,</span><span class="pln"> </span><span class="pun">...)...;</span></code></pre>
+
+<p>Next fill this table with values.</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="pln">INSERT INTO tmp </span><span class="pun">(</span><span class="pln">username</span><span class="pun">,</span><span class="pln"> password</span><span class="pun">,</span><span class="pln"> bio</span><span class="pun">,</span><span class="pln"> homepage</span><span class="pun">)</span><span class="pln"> VALUES $ALL_VAL</span></code></pre>
+
+<p>Here instead of $ALL_VAL you place list of values: ('test1','test1','bio1','home1'),...,('testn','testn','bion','homen')</p>
+
+<p><strong>Step II:</strong> Send data to 'user' table.</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="pln">INSERT IGNORE INTO users </span><span class="pun">(</span><span class="pln">username</span><span class="pun">,</span><span class="pln"> password</span><span class="pun">)</span><span class="pln">
+SELECT username</span><span class="pun">,</span><span class="pln"> password FROM tmp</span><span class="pun">;</span></code></pre>
+
+<p>Here "IGNORE" can be used, if you allow some users already to be inside. Optionaly you can use UPDATE similar to step III, before this step, to find whom users are already inside (and mark them in tmp table). Here we suppouse, that username is declared as PRIMARY in users table.</p>
+
+<p><strong>Step III:</strong> Apply update to read all users id from users to tmp table. <strong><em>THIS IS ESSENTIAL STEP.</em></strong></p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="pln">UPDATE tmp JOIN users ON tmp</span><span class="pun">.</span><span class="pln">username</span><span class="pun">=</span><span class="pln">users</span><span class="pun">.</span><span class="pln">username SET tmp</span><span class="pun">.</span><span class="pln">id</span><span class="pun">=</span><span class="pln">users</span><span class="pun">.</span><span class="pln">id</span></code></pre>
+
+<p><strong>Step IV:</strong> Create another table, useing read id for users</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="pln">INSERT INTO profiles </span><span class="pun">(</span><span class="pln">userid</span><span class="pun">,</span><span class="pln"> bio</span><span class="pun">,</span><span class="pln"> homepage</span><span class="pun">)</span><span class="pln"> 
+SELECT id</span><span class="pun">,</span><span class="pln"> bio</span><span class="pun">,</span><span class="pln"> homepage FROM tmp</span></code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/15663312" title="short permalink to this answer" class="short-link" id="link-post-15663312">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/15663312/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-03-27 15:55:21Z" class="relativetime">Mar 27 '13 at 15:55</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/2216334/zasega-anonimno"><div class="gravatar-wrapper-32"><img src="./++_files/28e0f905ffb1137f8022feedd6338638" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/2216334/zasega-anonimno">Zasega Anonimno</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">1</span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-15663312" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+            <div id="comments-link-15663312" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span><a class="js-show-link comments-link dno" title="expand to show all comments on this post, or add one of your own" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#" onclick=""></a>
+            </div>
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="5179068"></a>
+<div id="answer-5179068" class="answer" data-answerid="5179068" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="5179068">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span itemprop="upvoteCount" class="vote-count-post ">-2</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Just a remark about your saying</p>
+
+<blockquote>
+  <p>Hi, I tried searching a way to insert information in multiple tables in the same query</p>
+</blockquote>
+
+<p>Do you eat all your lunch dishes mixed with drinks in the same bowl?<br>
+I suppose - no.</p>
+
+<p>Same here.<br>
+There are things we do separately.<br>
+2 insert queries are 2 insert queries. It's all right. Nothing wrong with it. No need to mash it in one.<br>
+Same for select. Query must be sensible and do it's job. That's the only reasons. Number of queries is not.</p>
+
+<p>As for the transactions - you may use them, but it's not THAT big deal for the average web-site. If it happened once a year (if ever) that one user registration being broken you'll be able to fix, no doubt.<br>
+there are hundreds of thousands sites running mysql with no transaction support driver. Have you heard of terrible disasters breaking these sites apart? Me neither.</p>
+
+<p>And mysql_insert_id() has noting to do with transactions. you may include in into transaction all right. it's just different matters. Someone raised this question out of nowhere.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/5179068" title="short permalink to this answer" class="short-link" id="link-post-5179068">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/5179068/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2011-03-03 09:51:44Z" class="relativetime">Mar 3 '11 at 9:51</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/285587/your-common-sense"><div class="gravatar-wrapper-32"><img src="./++_files/1dbafe0b813afe397131e17d7c5cacbe" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/285587/your-common-sense">Your Common Sense</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">1</span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-5179068" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="1" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-5818624" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Why would you want to risk having to fix stuff like that when it's easily avoidable?</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/452865/vichle" title="169 reputation" class="comment-user">vichle</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#comment5818624_5179068"><span title="2011-03-03 09:55:16Z" class="relativetime-clean">Mar 3 '11 at 9:55</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-5818779" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@vichle my tables are of myisam type. For sake of fulltext search, legacy and habit. I am risking, yup. What a terrible (in theory) peril is waiting me.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/285587/your-common-sense" title="1 reputation" class="comment-user">Your Common Sense</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#comment5818779_5179068"><span title="2011-03-03 10:07:16Z" class="relativetime-clean">Mar 3 '11 at 10:07</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-5818872" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">3</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Why are you being so aggressive? I'm just stating that transactions is the way to go here. You do it your way if you wish, the fact is still that transactions were created for this kind of situation.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/452865/vichle" title="169 reputation" class="comment-user">vichle</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#comment5818872_5179068"><span title="2011-03-03 10:16:21Z" class="relativetime-clean">Mar 3 '11 at 10:16</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-5818977" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@vichle yup, I was quite harsh, I apologize. It was yours <code>That function is the devil of database consistency.</code> which made that, not transactions. I see nothing bad in transactions.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/285587/your-common-sense" title="1 reputation" class="comment-user">Your Common Sense</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#comment5818977_5179068"><span title="2011-03-03 10:23:07Z" class="relativetime-clean">Mar 3 '11 at 10:23</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-5819254" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Apology accepted. All I meant was that the function is often misused by people who are not aware of the existence of transactions. These people are also quite overrepresented in the php community.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/452865/vichle" title="169 reputation" class="comment-user">vichle</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#comment5819254_5179068"><span title="2011-03-03 10:45:03Z" class="relativetime-clean">Mar 3 '11 at 10:45</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+            <div id="comments-link-5179068" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span><a class="js-show-link comments-link " title="expand to show all comments on this post, or add one of your own" href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#" onclick="">show <b>1</b> more comment</a>
+            </div>
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="http://stackoverflow.com/questions/5178697/answer/submit" method="post" class="post-form">
+						    <input type="hidden" id="post-id" value="5178697">
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false">
+                            <input type="hidden" name="referrer" value="">
+							<h2 class="space">Your Answer</h2>
+
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+            // Have to fire editor after snippets, if snippets enabled
+            if (StackExchange.options.snippets.enabled) {
+                StackExchange.using("snippets", function() {
+                    createEditor();
+                });
+            }
+            else {
+                createEditor();
+            }
+        });
+
+        function createEditor() {
+            prepareEditor({
+                heartbeatType: 'answer',
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                ,immediatelyShowMarkdownHelp:true
+                });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px;"><span style="background-position: 0px -20px;"></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px;"><span style="background-position: -20px -20px;"></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px;"><span style="background-position: -60px -20px;"></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px;"><span style="background-position: -80px -20px;"></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px;"><span style="background-position: -100px -20px;"></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px;"><span style="background-position: -140px -20px;"></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px;"><span style="background-position: -160px -20px;"></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px;"><span style="background-position: -180px -20px;"></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px;"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="e3c14d6265d9ca21c78b6ba2619c56e1">
+        <input id="author" name="author" type="text">
+    </div>
+</div>
+							<div style="position: relative;">
+								
+            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="http://stackoverflow.com/users/login?returnurl=%2fquestions%2f5178697%2fmysql-insert-into-multiple-tables-database-normalization%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Stack Exchange</span></p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="manual-openid" class="manual-openid">
+                    <input type="hidden" name="use-facebook" class="use-facebook" value="false">
+                    <input type="hidden" name="use-google" class="use-google" value="false">
+                    <input type="button" class="submit-openid" value="Submit" style="display:none">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', '%2fquestions%2f5178697%2fmysql-insert-into-multiple-tables-database-normalization%23new-answer');
+                    }
+                );
+            </script>
+            <noscript>
+                        &lt;h3&gt;Post as a guest&lt;/h3&gt;
+    &lt;div class="form-item"&gt;
+        &lt;table&gt;
+        &lt;tr&gt;
+                    &lt;td class="vm"&gt;
+                &lt;div&gt;
+                    &lt;label for="display-name"&gt;Name&lt;/label&gt;
+                    &lt;input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105"&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="m-address"&gt;Email&lt;/label&gt;
+                    &lt;input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" /&gt;
+                &lt;/div&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+
+            </noscript>
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+									<a href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization#" class="discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.</p>
+<input type="hidden" name="legalLinksShown" value="1">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="http://stackoverflow.com/questions/tagged/php" class="post-tag" title="show questions tagged &#39;php&#39;" rel="tag">php</a> <a href="http://stackoverflow.com/questions/tagged/mysql" class="post-tag" title="show questions tagged &#39;mysql&#39;" rel="tag">mysql</a>  or <a href="http://stackoverflow.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2011-03-03 09:15:27Z"><b>3 years ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>65011 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="http://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization?lastactivity" class="lastactivity-link" title="2013-10-29 21:39:52Z">1 year ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+						
+			<script>
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8277,"adzerk1621355511",[17,2221]).setZone(45) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk1621355511"><div id="careersadsdoublehigh" style="display:none;"></div><img height="0px" width="0px" border="0" style="position:absolute;" src="http://engine.adzerk.net/i.gif?e=eyJhdiI6NDE0LCJhdCI6MTcsImJ0IjowLCJjbSI6OTIxLCJjaCI6MTE3OCwiY3IiOjI2ODgsImRpIjoiYzI5MzU2ZTNkYWM4NGRkMDg1ZTBhN2RiMTIwZGI4YWMiLCJkbSI6MSwiZmMiOjI0ODUsImZsIjoyNjYzLCJpcCI6IjU4LjguOTUuMTM3Iiwia3ciOiJwaHAsbXlzcWwiLCJudyI6MjIsInBjIjowLCJwciI6NjE3MzcsInJ0IjoxLCJzdCI6ODI3NywidWsiOiJ1ZTEtMGE4NDM3NzFiMGVkNGVmYzliYmQ2MmI1OGM4YzFjYTYiLCJ6biI6NDUsInRzIjoxNDIzMDQ1NzczNjExLCJiZiI6dHJ1ZX0&s=nbncZWa3s3MQiFajPmJnLJNJNw4"></div>  
+        <div id="hireme">
+            <script>
+;(function(e){var a=window.$,p=window.StackExchange,f=100,c="div#hireme,div.hireme",g=decodeURIComponent,i=encodeURIComponent,r=setTimeout,h=document,q,b,m={},l=location.hash;if(l.length>1){l.substr(1).split("&").forEach(function(t){var u=t.split("=");this[g(u[0])]=g(u[1])},m)}b=m.ac||m.accountid||(p&&p.options&&p.options.user&&p.options.user.accountId);if(b){m.ac=b}if(!m.tags){q=a(".post-taglist .post-tag").map(function(){return a(this).text()});if(q.length>0){m.tags=Array.prototype.join.call(q,";")}}if(l==="#large"){m.l=1}if(l==="#abort"){m.abort=1}function j(t){return a(t).html().replace(/\s+/g,"").length>0}function s(){var t=a("#sidebar [id^='adzerk'].everyonelovesstackoverflow");if(t.length===0){return true}return !j(t)}function n(){var t=a(c);if(t.length>0){if(m.l||a("#careersadsdoublehigh").length>0){m.l=1}var v=t.map(function(z,y){return"d="+y.id}).get().join("&");var x=["l","ip","ac","eng","prov","tags"];var u=Object.keys(m).filter(function(y){return x.indexOf(y)!==-1}).map(function(y){return i(y)+"="+i(m[y])}).join("&");if(u){v+="&"+u}var w=h.createElement("script");w.type="text/javascript";w.src=e+(e.indexOf("?")===-1?"?":"&")+v;h.body.appendChild(w)}}function o(){if(s()){d=r(o,f);return}if(m.abort){k()}n()}function k(){clearTimeout(d);a(c).each(function(){var t=a(this);if(!j(t)){var v=t;var u=t.parents(".everyonelovesstackoverflow").first();if(u.length>0){v=u}v.remove()}})}r(k,2000);var d=r(o,f)}).apply(null, ["//clc.stackoverflow.com/j/p"]);            </script>
+            
+        </div>
+			<div class="module" id="chat-feature">
+    
+
+    
+<h4><a href="http://chat.stackoverflow.com/" id="h-chat-link" title="88 users active in 47 rooms the last 60 minutes">88 People Chatting</a></h4>
+
+<div class="related" id="ad502-rooms"><div class="ad502-room"><h3 class="ad502-room-h3"><span class="ad502-room-title" title="PHP"><a href="http://chat.stackoverflow.com/rooms/11">PHP</a></span></h3><span title="2015-02-04 09:10:53Z" class="ad502-last-message">1 hour ago - <a href="http://chat.stackoverflow.com/users/811241">Fabor</a></span><br><div class="ad502-users"><a href="http://chat.stackoverflow.com/users/811241"><img height="23" width="23" title="Fabor: 1 hour ago" src="http://i.stack.imgur.com/Sei1F.jpg?s=128&g=1&g&s=32"></a><a href="http://chat.stackoverflow.com/users/2834339"><img height="23" width="23" title="Patrick: 1 hour ago" src="http://i.stack.imgur.com/rmnMl.jpg?s=128&g=1&g&s=32"></a><a href="http://chat.stackoverflow.com/users/736809"><img height="23" width="23" title="Jimbo: 1 hour ago" src="http://i.stack.imgur.com/cJbY9.jpg?s=128&g=1&g&s=32"></a><a href="http://chat.stackoverflow.com/users/982075"><img height="23" width="23" title="Marcel Burkhard: 1 hour ago" src="https://www.gravatar.com/avatar/dc2dbc76812fb39833902e30a6900bad?s=23&d=identicon&r=PG"></a><a href="http://chat.stackoverflow.com/users/424004"><img height="23" width="23" title="Dejan Marjanovic: 1 hour ago" src="https://www.gravatar.com/avatar/d4f3af728d5ff76fc417f47279b3bc3b?s=23&d=identicon&r=PG"></a><a href="http://chat.stackoverflow.com/users/851498"><img height="23" width="23" title="Florian Margaine: 1 hour ago" src="https://www.gravatar.com/avatar/138a5bfc83f7df06b2701ccd722531c3?s=23&d=identicon&r=PG"></a><a href="http://chat.stackoverflow.com/users/2018654"><img height="23" width="23" title="Naruto: 1 hour ago" src="https://www.gravatar.com/avatar/dd5ef51c246fcb47fd6d42208c0c9b7b?s=23&d=identicon&r=PG"></a></div></div><div class="ad502-room"><h3 class="ad502-room-h3"><span class="ad502-room-title" title="JavaScript"><a href="http://chat.stackoverflow.com/rooms/17">JavaScript</a></span></h3><span title="2015-02-04 08:48:18Z" class="ad502-last-message">1 hour ago - <a href="http://chat.stackoverflow.com/users/2495283">Claies</a></span><br><div class="ad502-users"><a href="http://chat.stackoverflow.com/users/2495283"><img height="23" width="23" title="Claies: 1 hour ago" src="https://www.gravatar.com/avatar/62ef72b32709062aa479476844515073?s=23&d=identicon&r=PG"></a><a href="http://chat.stackoverflow.com/users/851498"><img height="23" width="23" title="Florian Margaine: 1 hour ago" src="https://www.gravatar.com/avatar/138a5bfc83f7df06b2701ccd722531c3?s=23&d=identicon&r=PG"></a><a href="http://chat.stackoverflow.com/users/871050"><img height="23" width="23" title="Second Rikudo: 1 hour ago" src="https://www.gravatar.com/avatar/a7a50a9492be737b0c012a839338272a?s=23&d=identicon&r=PG"></a><a href="http://chat.stackoverflow.com/users/472015"><img height="23" width="23" title="Roel van Uden: 1 hour ago" src="https://www.gravatar.com/avatar/dd31c566b8e5e541810b1cfcdce25170?s=23&d=identicon&r=PG"></a><a href="http://chat.stackoverflow.com/users/589973"><img height="23" width="23" title="jemz: 2 hours ago" src="https://www.gravatar.com/avatar/483557a5f8b6fd52bef7c864204311c4?s=23&d=identicon&r=PG"></a><a href="http://chat.stackoverflow.com/users/1150599"><img height="23" width="23" title="corvid: 3 hours ago" src="http://i.stack.imgur.com/gGkxO.jpg?s=128&g=1&g&s=32"></a><a href="http://chat.stackoverflow.com/users/272287"><img height="23" width="23" title="jdphenix: 3 hours ago" src="http://i.stack.imgur.com/BaAfl.jpg?s=128&g=1&g&s=32"></a></div></div></div>
+<script>
+// <!--
+    StackExchange.ready(
+    function () {
+        var options = {
+            chatUrl: 'http://chat.stackoverflow.com',
+            reloadUrl: '/api/recent-chat',
+            preloadData: {"activeUsers":88,"activeRooms":47,"rooms":[{"name":"PHP","id":11,"lastPost":1423041053,"posts":1804111,"users":[{"name":"Fabor","id":811241,"emailhash":"!http://i.stack.imgur.com/Sei1F.jpg?s=128\u0026g=1","lastPost":1423041054},{"name":"Patrick","id":2834339,"emailhash":"!http://i.stack.imgur.com/rmnMl.jpg?s=128\u0026g=1","lastPost":1423041036},{"name":"Jimbo","id":736809,"emailhash":"!http://i.stack.imgur.com/cJbY9.jpg?s=128\u0026g=1","lastPost":1423040988},{"name":"Marcel Burkhard","id":982075,"emailhash":"dc2dbc76812fb39833902e30a6900bad","lastPost":1423040985},{"name":"Dejan Marjanovic","id":424004,"emailhash":"d4f3af728d5ff76fc417f47279b3bc3b","lastPost":1423040631},{"name":"Florian Margaine","id":851498,"emailhash":"138a5bfc83f7df06b2701ccd722531c3","lastPost":1423039540},{"name":"Naruto","id":2018654,"emailhash":"dd5ef51c246fcb47fd6d42208c0c9b7b","lastPost":1423038753}],"messages":[{"date":1423041053,"user":"Fabor","userid":811241}],"singleImage":false,"tags":["php"]},{"name":"JavaScript","id":17,"lastPost":1423039698,"posts":2415372,"users":[{"name":"Claies","id":2495283,"emailhash":"62ef72b32709062aa479476844515073","lastPost":1423039698},{"name":"Florian Margaine","id":851498,"emailhash":"138a5bfc83f7df06b2701ccd722531c3","lastPost":1423039322},{"name":"Second Rikudo","id":871050,"emailhash":"a7a50a9492be737b0c012a839338272a","lastPost":1423039311},{"name":"Roel van Uden","id":472015,"emailhash":"dd31c566b8e5e541810b1cfcdce25170","lastPost":1423039258},{"name":"jemz","id":589973,"emailhash":"483557a5f8b6fd52bef7c864204311c4","lastPost":1423037372},{"name":"corvid","id":1150599,"emailhash":"!http://i.stack.imgur.com/gGkxO.jpg?s=128\u0026g=1","lastPost":1423034611},{"name":"jdphenix","id":272287,"emailhash":"!http://i.stack.imgur.com/BaAfl.jpg?s=128\u0026g=1","lastPost":1423034083}],"messages":[{"date":1423039698,"user":"Claies","userid":2495283}],"singleImage":false,"tags":["ecmascript","es6","javascript"]}]} 
+        };
+
+        StackExchange.chatAd.init(options);
+    });
+// -->
+</script>
+
+</div>  
+    
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/14059172?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/14059172/insert-into-2-tables-with-pdo-mysql?lq=1" class="question-hyperlink">Insert into 2 tables with PDO MySQL</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/14420376?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/14420376/insert-values-into-multiple-tables-with-single-query?lq=1" class="question-hyperlink">Insert values into multiple tables with single query</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/15651864?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/15651864/insert-into-2-tables-from-1-form?lq=1" class="question-hyperlink">Insert into 2 tables from 1 form</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/11568694?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">3</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/11568694/sql-relational-insert-to-2-tables-in-single-query-without-resorting-to-mysql-ins?lq=1" class="question-hyperlink">SQL relational insert to 2 tables in single query without resorting to mysql_insert_id()</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/17148885?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/17148885/begin-commit-fails-in-sqlite?lq=1" class="question-hyperlink">“BEGIN..COMMIT;” fails in SQLite</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/12764985?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/12764985/how-to-insert-into-values-into-two-table-with-foreign-key-relationship-built-in?lq=1" class="question-hyperlink">How to insert into values into two table with foreign key relationship built in?</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/13783380?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/13783380/how-to-insert-data-to-several-tables-in-mysql?lq=1" class="question-hyperlink">How to insert data to several tables in MySQL?</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/22208340?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">-1</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/22208340/php-codeigniter-how-can-i-insert-data-to-multi-table-with-same-sql?lq=1" class="question-hyperlink">PHP/Codeigniter-How can I insert data to multi table with same sql?</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/25080636?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/25080636/mysqli-how-to-insert-into-multiple-tables-with-prepared-statements?lq=1" class="question-hyperlink">MySQLi: How to insert into multiple tables with prepared statements</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/14988467?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/14988467/mysql-query-one-to-many-relationship?lq=1" class="question-hyperlink">mysql query one-to-many relationship</a>
+</div>					<div class="spacer more">
+				<a href="http://stackoverflow.com/questions/linked/5178697?lq=1">see more linked questions…</a>
+			</div>
+	</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/5021557?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/5021557/mysql-php-insert-into-multiple-tables-in-database?rq=1" class="question-hyperlink">MYSQL, PHP Insert into Multiple Tables in Database</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/6045857?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/6045857/inserting-an-entry-in-multiple-tables-in-an-sql-database?rq=1" class="question-hyperlink">Inserting an entry in multiple tables in an sql database</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/12047536?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/12047536/mysql-php-inserting-into-table?rq=1" class="question-hyperlink">MYSQL PHP inserting into table</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/17628035?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/17628035/mysql-insert-multiple-table-value-in-one?rq=1" class="question-hyperlink">MySQL: Insert multiple table value in one</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/17718661?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">2
+    </div>
+</a><a href="http://stackoverflow.com/questions/17718661/inserting-multiple-rows-into-a-mysql-database-from-a-html-form?rq=1" class="question-hyperlink">Inserting multiple rows into a MySQL database from a HTML Form</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/18088965?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/18088965/cannot-insert-data-to-mysql-table-using-insert-into?rq=1" class="question-hyperlink">cannot insert data to mysql table using INSERT INTO</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/22064426?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/22064426/how-to-insert-multiple-mysql-table-rows-from-a-php-array?rq=1" class="question-hyperlink">How to insert multiple MySQL table rows from a PHP array</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/24709683?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/24709683/mysql-insert-multiple-rows?rq=1" class="question-hyperlink">MySQL Insert multiple rows</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/26629249?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/26629249/visual-basic-inserting-into-multiple-tables-on-one-mysql-database?rq=1" class="question-hyperlink">visual basic inserting into multiple tables on one mysql database</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/27068746?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/27068746/insert-scrapped-variable-into-mysql-table-with-php?rq=1" class="question-hyperlink">Insert scrapped variable into mysql table with php</a>
+</div>
+
+                    </div>
+				</div>
+            
+<div id="hot-network-questions" class="module">
+    <h4>
+        <a href="http://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-astronomy" title="Astronomy Stack Exchange"></div><a href="http://astronomy.stackexchange.com/questions/8767/does-a-black-hole-become-a-normal-star-again" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:514 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Does a black hole become a normal star again?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-space" title="Space Exploration Stack Exchange"></div><a href="http://space.stackexchange.com/questions/8024/how-do-the-sizes-of-the-various-proposed-manned-capsules-differ" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:508 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do the sizes of the various proposed manned capsules differ?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="http://academia.stackexchange.com/questions/38065/how-to-handle-a-students-public-speaking-anxiety-when-teaching-a-class-that-req" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to handle a student's public speaking anxiety when teaching a class that requires presentations?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-webmasters" title="Webmasters Stack Exchange"></div><a href="http://webmasters.stackexchange.com/questions/76747/my-domain-registrar-has-gone-bankrupt-but-the-domain-is-locked-what-can-i-do" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:45 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    My domain registrar has gone bankrupt but the domain is locked, what can I do?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/45295/is-this-even-a-word" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is this even a word?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="http://physics.stackexchange.com/questions/163217/is-there-a-limitation-on-gauss-law" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is there a limitation on Gauss' law?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-history" title="History Stack Exchange"></div><a href="http://history.stackexchange.com/questions/19224/john-the-fearless-john-i-or-john-ii-can-the-french-and-the-english-agree" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:324 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    John the Fearless: John I or John II? Can the French and the English agree?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1132351/a-pedantic-question-about-notation-such-that-symbols" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    A pedantic question about notation -- "such that" symbols
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="http://workplace.stackexchange.com/questions/41072/participating-in-annual-review-while-in-negotiations-for-new-position-elsewhere" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Participating in Annual Review WHILE in negotiations for new position elsewhere. Make unhappiness known?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="http://academia.stackexchange.com/questions/38157/is-it-better-to-be-more-long-winded-than-concise-in-writing-a-mathematical-ph-d" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it better to be more long-winded than concise in writing a mathematical Ph.D. thesis?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-serverfault" title="Server Fault"></div><a href="http://serverfault.com/questions/664840/sendmail-is-not-listening-to-any-port" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:2 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Sendmail is not listening to any port
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-movies" title="Movies &amp; TV Stack Exchange"></div><a href="http://movies.stackexchange.com/questions/30706/how-did-stuntman-mike-evade-the-police-after-murdering-4-girls" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:367 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How did stuntman Mike evade the police after murdering 4 girls?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="http://tex.stackexchange.com/questions/226424/number-equations-inside-enumerate" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Number equations inside enumerate
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="http://english.stackexchange.com/questions/225378/what-word-describes-something-that-can-move-orthogonally-and-diagonally" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What word describes something that can move orthogonally and diagonally?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="http://worldbuilding.stackexchange.com/questions/9549/why-would-people-in-500-years-time-be-using-waterways-for-transport" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why would people in 500+ years' time be using waterways for transport?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-music" title="Music: Practice &amp; Theory Stack Exchange"></div><a href="http://music.stackexchange.com/questions/29358/every-time-i-press-record-i-forget-how-to-play-and-sing" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:240 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Every time I press 'record' I forget how to play and sing!
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-stats" title="Cross Validated"></div><a href="http://stats.stackexchange.com/questions/136251/derivation-of-mle-of-linear-regression-and-now-why-is-there-discrepancy-to-lm" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:65 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Derivation of MLE of linear regression: and now? Why is there discrepancy to lm in R?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-askubuntu" title="Ask Ubuntu"></div><a href="http://askubuntu.com/questions/581113/is-there-a-simple-text-editor-for-ubuntu-like-gedit-with-options-to-make-text" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:89 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is there a simple text editor for Ubuntu (like gedit) with options to make text bold?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="http://unix.stackexchange.com/questions/182802/lots-of-elif-is-there-a-better-way" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    lots of elif, is there a better way?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-craftcms" title="Craft CMS Stack Exchange"></div><a href="http://craftcms.stackexchange.com/questions/6973/why-does-my-custom-element-type-error-around-locale-being-missing-on-the-element" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:563 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why does my custom element type error around locale being missing on the element types' model?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-space" title="Space Exploration Stack Exchange"></div><a href="http://space.stackexchange.com/questions/8026/do-you-need-a-heat-shield-to-enter-the-atmosphere-from-non-orbital-speeds" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:508 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Do you need a heat shield to enter the atmosphere from non-orbital speeds?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="http://english.stackexchange.com/questions/225286/the-statues-were-unheralded-for-almost-a-century-a-better-idiom-phrase" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    The statues were unheralded for almost a century - a better idiom/phrase
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-ux" title="User Experience Stack Exchange"></div><a href="http://ux.stackexchange.com/questions/73035/why-are-computer-keyboards-still-basically-the-same" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:102 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why are computer keyboards still basically the same?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-gaming" title="Arqade"></div><a href="http://gaming.stackexchange.com/questions/204079/how-to-play-aim-botz-map" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:41 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to play aim_botz map?
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="http://stackoverflow.com/feeds/question/5178697" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/5178697/ivc/ee3a');});
+</script>
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/5178697/ivc/ee3a" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;
+</noscript><div style="display:none" id="prettify-lang">default</div></div>
+
+
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                    <a href="http://stackoverflow.com/help">help</a>
+                    <a href="http://blog.stackoverflow.com/?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com/">chat</a>
+                    <a href="http://data.stackexchange.com/">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackexchange.com/work-here">work here</a>
+                    <a href="http://stackexchange.com/mediakit">advertising info</a>
+
+                    <a onclick="StackExchange.switchMobile(&quot;on&quot;)">mobile</a>
+                    <b><a href="http://stackoverflow.com/contact">contact us</a></b>
+                        <b><a href="http://meta.stackoverflow.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://programmers.stackexchange.com/" title="professional programmers interested in conceptual questions about software development">Programmers</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems.">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="Information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Mathematica">Mathematica</a></li>
+                        <li><a href="http://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (14)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="http://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                        <li><a href="http://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (10)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (21)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (7)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://careers.stackoverflow.com/">Stack Overflow Careers</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+
+            <div id="copyright">
+                site design / logo © 2015 stack exchange inc; user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a>                   with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2015.2.4.2272
+            </div>
+            
+        </div>
+    </div>
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled&lt;img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;&lt;/div&gt;
+    </noscript>
+<script>var p = "http", d = "static"; if (document.location.protocol == "https:") { p += "s"; d = "engine"; } var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = p + "://" + d + ".adzerk.net/ados.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+<script>
+    var ados = ados || {};
+    ados.run = ados.run || [];
+    ados.run.push(function () { ados_setKeywords('php,mysql');; ados_load(); });         
+</script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-5620270-1');        
+        
+        ga('set', 'dimension2', '|php|mysql|');         
+        ga('send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+            qc.async=true;
+            qc.src=(ssl?'https://secure':'http://edge')+'.quantserve.com/quant.js';
+            s.parentNode.insertBefore(qc, s);
+            var sc=document.createElement('script');
+            sc.async=true;
+            sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+            s.parentNode.insertBefore(sc, s);
+        })();
+        _comscore.push({ c1: "2", c2: "17440561" });
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>        
+    
+    
+</body></html>
